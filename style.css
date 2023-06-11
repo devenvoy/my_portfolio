@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    /* Add box-sizing property to include padding and border in element's total width/height */
 }
 
 body {
@@ -18,13 +20,18 @@ nav {
     background-color: rgb(18, 18, 62);
 }
 
-nav img{
+nav img {
     width: 100px;
+    max-width: 100%;
+    /* Add max-width to prevent image overflow on smaller screens */
     margin-right: -200px;
 }
+
 nav ul {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    /* Add flex-wrap to handle menu items on smaller screens */
 }
 
 nav ul li {
@@ -46,12 +53,17 @@ main hr {
     border: 0;
     background: #9c97f1;
     height: 1.2px;
-    margin: 60px 84px;
+    margin: 60px auto;
+    /* Center the hr element horizontally */
+    max-width: 84px;
+    /* Add max-width to prevent excessive width on larger screens */
 }
 
 footer {
     background-color: rgb(15, 14, 21);
     color: white;
+    padding: 20px 0;
+    text-align: center;
 }
 
 footer a{
@@ -59,8 +71,19 @@ footer a{
     color: white;
 }
 
+.footer li{
+    list-style: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .footer>div {
     width: 250px;
+    margin: 10px;
 }
 
 .left {
@@ -71,16 +94,38 @@ footer a{
     text-decoration: none;
     color: white;
 }
+.last-text{
+    color: gray;
+}
+
+/* Small devices (up to 576px) */
+@media (max-width: 576px) {
+    .footer>div {
+        width: 100%;
+    }
+
+    .left {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+}
+
 
 .firstSection {
     display: flex;
+    flex-wrap: wrap;
+    /* Allow content to wrap on smaller screens */
     justify-content: space-around;
     align-items: center;
     margin: 130px 0;
 }
 
 .firstSection>div {
-    width: 30%;
+    width: 100%;
+    max-width: 30%;
+    /* Adjust width percentage based on your design needs */
+    margin-bottom: 20px;
+    /* Add margin-bottom for spacing between div elements */
 }
 
 .leftSection {
@@ -88,7 +133,9 @@ footer a{
 }
 
 .rightSection img {
-    width: 80%;
+    width: 100%;
+    height: auto;
+    /* Allow the image height to adjust according to its width */
     margin: 50px 0;
 }
 
@@ -103,7 +150,10 @@ footer a{
 .secondSection {
     max-width: 80vw;
     margin: auto;
-    height: 80vh;
+    padding: 0 20px;
+    /* Add padding for better spacing */
+    height: 100vh;
+    /* Allow height to adjust according to content */
 }
 
 .secondSection h1 {
@@ -116,17 +166,18 @@ footer a{
 
 .secondSection .box {
     background: black;
-    width: 76vw;
+    width: 100%;
     height: 2px;
     margin: 56px 0;
     display: flex;
+    justify-content: space-between;
+    /* Distribute the vertical lines evenly */
 }
 
 .secondSection .vertical {
     height: 93px;
     width: 1px;
     background-color: black;
-    margin: 0 120px;
 }
 
 .image-top {
@@ -148,22 +199,6 @@ footer a{
     color: gray;
     width: 150px;
     font-size: 9px;
-}
-
-.footer {
-    display: flex;
-    padding: 23px 122px;
-    justify-content: space-evenly;
-}
-
-.footer ul {
-    list-style: none;
-}
-
-.last-text {
-    text-align: center;
-    color: gray;
-    padding: 12px 0;
 }
 
 .container {
@@ -194,6 +229,8 @@ footer a{
 .container .image-container .image {
     height: 250px;
     width: 350px;
+    max-width: 100%;
+    /* Add max-width to prevent image overflow on smaller screens */
     border: 5px solid #c6c6ef;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
     overflow: hidden;
@@ -233,9 +270,6 @@ footer a{
     cursor: pointer;
     z-index: 100;
 }
-.container p{
-    text-align: center;
-}
 
 .container .popup-image img {
     position: absolute;
@@ -244,7 +278,133 @@ footer a{
     transform: translate(-50%, -50%);
     border: 5px solid #fff;
     border-radius: 5px;
-    width: 1000px;
-    height: 800px;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
+}
+
+
+.container p {
+    text-align: center;
+}
+
+/* Small devices (up to 576px) */
+@media (max-width: 576px) {
+    nav img {
+        margin-right: 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .firstSection>div {
+        max-width: 100%;
+    }
+
+    .rightSection img {
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .secondSection .box {
+        width: 100%;
+    }
+
+    .vertical-title {
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .vertical-desc {
+        position: relative;
+        top: 0;
+        width: 100%;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .container .image-container .image {
+        height: 200px;
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Medium devices (between 577px and 992px) */
+@media (min-width: 577px) and (max-width: 992px) {
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    .firstSection>div {
+        max-width: 40%;
+    }
+
+    .rightSection img {
+        width: 90%;
+        margin: 40px 0;
+    }
+
+    .secondSection .box {
+        width: 90%;
+    }
+
+    .vertical-title {
+        width: 130px;
+    }
+
+    .vertical-desc {
+        width: 130px;
+        font-size: 12px;
+    }
+
+    .container .image-container .image {
+        height: 220px;
+        width: 320px;
+        margin-right: 15px;
+    }
+    
+    .footer>div {
+        width: 50%;
+      }
+}
+
+/* Large devices (above 992px) */
+@media (min-width: 993px) {
+    .firstSection>div {
+        max-width: 30%;
+    }
+
+    .rightSection img {
+        width: 80%;
+        margin: 50px 0;
+    }
+
+    .secondSection .box {
+        width: 76vw;
+    }
+
+    .vertical-title {
+        width: 150px;
+    }
+
+    .vertical-desc {
+        width: 150px;
+        font-size: 9px;
+    }
+
+    .container .image-container .image {
+        height: 250px;
+        width: 350px;
+        margin-right: 20px;
+    }
+
+    .footer>div {
+        width: 250px;
+      }
 }
