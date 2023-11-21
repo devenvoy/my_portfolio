@@ -9,6 +9,7 @@ body {
     background-color: #ddd;
     color: darkblue;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 nav {
@@ -66,12 +67,12 @@ footer {
     text-align: center;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: white;
 }
 
-.footer li{
+.footer li {
     list-style: none;
 }
 
@@ -94,8 +95,114 @@ footer a{
     text-decoration: none;
     color: white;
 }
-.last-text{
+
+.last-text {
     color: gray;
+}
+
+.card-image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: #FFF;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.card-image .card-img {
+    height: 100%;
+    width: 100%;
+    border: 4px solid #4070F4;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.slide-container{
+    max-width: 1120px;
+    width: 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    padding: 40px 0;
+}
+.slide-content {
+    margin: 0 40px;
+}
+
+.image-content,
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+}
+
+.image-content {
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #4070F4;
+    left: 0;
+    top: 0;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    bottom: -40px;
+    right: 0;
+    background-color: #4070F4;
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #FFF;
+
+}
+
+.ViewButton {
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 14px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ViewButton:hover {
+    background: #265DF2;
+}
+
+.language-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.description {
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.card {
+    border-radius: 25px;
+    background-color: #FFF;
 }
 
 /* Small devices (up to 576px) */
@@ -368,10 +475,10 @@ footer a{
         width: 320px;
         margin-right: 15px;
     }
-    
+
     .footer>div {
         width: 50%;
-      }
+    }
 }
 
 /* Large devices (above 992px) */
@@ -406,5 +513,5 @@ footer a{
 
     .footer>div {
         width: 250px;
-      }
+    }
 }
